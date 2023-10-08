@@ -1,4 +1,4 @@
-import { globalCss } from '@ignite-ui/react'
+import { globalCss } from '@donecode-ignite-ui/react'
 
 export const globalStyles = globalCss({
   '*': {
@@ -6,6 +6,7 @@ export const globalStyles = globalCss({
     padding: 0,
     margin: 0,
   },
+
   body: {
     backgroundColor: '$gray900',
     color: '$gray100',
