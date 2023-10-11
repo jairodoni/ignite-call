@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import {
   Button,
   Heading,
@@ -6,12 +8,10 @@ import {
   TextInput,
 } from '@donecode-ignite-ui/react'
 import { Container, Form, Header, FormError } from './styles'
-import { ArrowRight } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
+import { ArrowRight } from 'phosphor-react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import { api } from '@/lib/axios'
 import { AxiosError } from 'axios'
 
@@ -54,6 +54,8 @@ export default function Register() {
         name: data.name,
         username: data.username,
       })
+
+      await router.push('/register/connect-calendar')
     } catch (err) {
       if (err instanceof AxiosError && err?.response?.data?.message) {
         alert(err.response.data.message)
@@ -97,7 +99,11 @@ export default function Register() {
           )}
         </label>
 
-        <Button type="submit" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          css={{ fontWeight: '$bold' }}
+        >
           Próximo passo
           <ArrowRight />
         </Button>
