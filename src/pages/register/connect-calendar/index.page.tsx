@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 
 export default function ConnectCalendar() {
   const session = useSession()
+
   const router = useRouter()
 
   const hasAuthError = !!router.query.error
@@ -14,6 +15,10 @@ export default function ConnectCalendar() {
 
   async function handleConnectCalendar() {
     await signIn('google')
+  }
+
+  async function handleNavigateToNextStep() {
+    await router.push('/register/time-intervals')
   }
 
   return (
@@ -55,6 +60,7 @@ export default function ConnectCalendar() {
         )}
 
         <Button
+          onClick={handleNavigateToNextStep}
           type="submit"
           css={{ fontWeight: '$bold' }}
           disabled={!isSignedIn}
