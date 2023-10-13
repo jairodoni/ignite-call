@@ -100,8 +100,8 @@ export default function Register() {
         </label>
 
         <Button
-          type="submit"
           disabled={isSubmitting}
+          type="submit"
           css={{ fontWeight: '$bold' }}
         >
           Próximo passo
