@@ -36,9 +36,7 @@ export default async function handler(
 
   await Promise.all(
     intervals.map((intervals) => {
-      // Tocar futuramente para createMany, SQLite não permite multiplas atividades para incluir dados
-      // await prisma.userTimeInterval.createMany()
-      return prisma.userTimeInterval.create({
+      return prisma.userTimeInterval.createMany({
         data: {
           week_day: intervals.weekDay,
           time_start_in_minutes: intervals.startTimeInMinutes,
