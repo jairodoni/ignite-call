@@ -4,6 +4,7 @@ import { Container, Header } from '../styles'
 import { ConnectBox, ConnecItem, AuthError } from './styles'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
 
 export default function ConnectCalendar() {
   const session = useSession()
@@ -22,53 +23,57 @@ export default function ConnectCalendar() {
   }
 
   return (
-    <Container>
-      <Header>
-        <Heading as="strong">Bem-vindo ao Ignite Call!</Heading>
-        <Text>
-          Precisamos de algumas informações para criar seu perfil! Ah, você pode
-          editar essas informações depois.
-        </Text>
-        <MultiStep size={4} currentStep={2} />
-      </Header>
+    <>
+      <NextSeo title="Conecte sua agenda do Google | Ignite Call" noindex />
 
-      <ConnectBox>
-        <ConnecItem>
-          <Text>Google Calendar</Text>
-          {isSignedIn ? (
-            <Button size="sm" disabled css={{ fontWeight: '$bold' }}>
-              Conectado
-              <Check />
-            </Button>
-          ) : (
-            <Button
-              variant="outline"
-              size="sm"
-              css={{ fontWeight: '$bold' }}
-              onClick={handleConnectCalendar}
-            >
-              Conectar
-            </Button>
+      <Container>
+        <Header>
+          <Heading as="strong">Bem-vindo ao Ignite Call!</Heading>
+          <Text>
+            Precisamos de algumas informações para criar seu perfil! Ah, você
+            pode editar essas informações depois.
+          </Text>
+          <MultiStep size={4} currentStep={2} />
+        </Header>
+
+        <ConnectBox>
+          <ConnecItem>
+            <Text>Google Calendar</Text>
+            {isSignedIn ? (
+              <Button size="sm" disabled css={{ fontWeight: '$bold' }}>
+                Conectado
+                <Check />
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                size="sm"
+                css={{ fontWeight: '$bold' }}
+                onClick={handleConnectCalendar}
+              >
+                Conectar
+              </Button>
+            )}
+          </ConnecItem>
+
+          {hasAuthError && (
+            <AuthError>
+              Falha ao se conectar ao Google, verifique se você habilitou as
+              permissões de acesso ao Google Calendar.
+            </AuthError>
           )}
-        </ConnecItem>
 
-        {hasAuthError && (
-          <AuthError>
-            Falha ao se conectar ao Google, verifique se você habilitou as
-            permissões de acesso ao Google Calendar.
-          </AuthError>
-        )}
-
-        <Button
-          onClick={handleNavigateToNextStep}
-          type="submit"
-          css={{ fontWeight: '$bold' }}
-          disabled={!isSignedIn}
-        >
-          Próximo passo
-          <ArrowRight />
-        </Button>
-      </ConnectBox>
-    </Container>
+          <Button
+            onClick={handleNavigateToNextStep}
+            type="submit"
+            css={{ fontWeight: '$bold' }}
+            disabled={!isSignedIn}
+          >
+            Próximo passo
+            <ArrowRight />
+          </Button>
+        </ConnectBox>
+      </Container>
+    </>
   )
 }
