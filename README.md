@@ -102,6 +102,8 @@ Você pode visualizar o layout do projeto no formato através [desse link](https
   - **[React Query][react_query]**
   - **[React Hook Form][react_hook_form]**
   - **[Prisma][prisma]**
+  - **[Planetscale][planetscale]**
+  - **[MySQL][mysql]**
   - **[Zod][zod]**
   - **[Design System Ignite][design_system_ignite]**
   - **[ESLint][eslint]**
@@ -209,6 +211,10 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 [prisma]: https://www.prisma.io
 
+[planetscale]: https://planetscale.com
+
+[mysql]: https://www.mysql.com
+
 [react_query]: https://tanstack.com/query/latest
 
 [react_hook_form]: https://www.react-hook-form.com
@@ -216,8 +222,6 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 [zod]: https://zod.dev
 
 [eslint]: https://eslint.org
-
-[stripe]: https://stripe.com/br
 
 [stitches]: https://stitches.dev
 
