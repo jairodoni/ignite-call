@@ -197,7 +197,7 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 [web_react_badge]: https://img.shields.io/badge/web-react-blue
 
-[typescript]: https://img.shields.io/badge/types-Typescript-blue
+[typescript]: https://www.typescriptlang.org
 
 <!-- Techs -->
 
